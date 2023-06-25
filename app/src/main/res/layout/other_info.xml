@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_other_details"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/edit_creative_endeavors"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/text_heading"
+        android:layout_marginTop="50dp"
+        android:autofillHints=""
+        android:hint="@string/enter_creative_endeavors"
+        android:textColorHint="#8D6E63" />
+
+    <EditText
+        android:id="@+id/edit_promoting_collaborations"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/edit_creative_endeavors"
+        android:layout_marginTop="50dp"
+        android:autofillHints=""
+        android:hint="@string/enter_promoting_collaborations"
+        android:textColorHint="#8D6E63" />
+
+    <EditText
+        android:id="@+id/edit_recognition"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/edit_promoting_collaborations"
+        android:layout_marginTop="50dp"
+        android:autofillHints=""
+        android:hint="@string/enter_recognition"
+        android:textColorHint="#8D6E63" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="124dp"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/submit" />
+
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_research_details"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/edit_research_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_heading"
+        android:layout_marginTop="50dp"
+        android:hint="@string/enter_your_research_name"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:required="true"
+        android:textColorHint="#8D6E63"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/edit_professor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_research_name"
+        android:layout_marginTop="50dp"
+        android:hint="@string/enter_professor_s_name"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:required="true"
+        android:textColorHint="#8D6E63"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/edit_research_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_professor_name"
+        android:layout_marginTop="50dp"
+        android:hint="@string/enter_research_description"
+        android:inputType="textMultiLine"
+        android:maxLength="500"
+        android:maxLines="10"
+        android:minLines="4"
+        android:required="true"
+        android:textColorHint="#8D6E63"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/edit_research_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_research_description"
+        android:layout_marginTop="50dp"
+        android:hint="@string/enter_research_link"
+        android:inputType="textUri"
+        android:minHeight="48dp"
+        android:required="false"
+        android:textColorHint="#8D6E63"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="126dp"
+        android:layout_height="65dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/next" />
+
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string name="view_details">View Details</string>
+    <string name="add_details">Add Details</string>
+    <string name="college_project_showcase">College Project Showcase</string>
+    <string name="enter_student_details">Enter Student Details</string>
+    <string name="enter_your_name">Enter your Name</string>
+    <string name="enter_your_usn">Enter your USN</string>
+    <string name="enter_your_college_name">Enter your College Name</string>
+    <string name="enter_your_semester">Enter your Semester</string>
+    <string name="next">Next</string>
+    <string name="enter_your_department">Enter your Department</string>
+    <string name="enter_your_project_description">Enter your Project Description</string>
+    <string name="enter_your_project_name">Enter your Project Name</string>
+    <string name="enter_project_details">Enter Project Details</string>
+    <string name="enter_your_project_link">Enter your Project Link</string>
+    <string name="enter_date_dd_mm_yyyy">Enter Date (dd/mm/yyyy)</string>
+    <string name="enter_research_description">Enter Research Description</string>
+    <string name="enter_professor_s_name">Enter Professor\'s Name</string>
+    <string name="enter_your_research_name">Enter your Research Name</string>
+    <string name="enter_research_details">Enter Research Details</string>
+    <string name="enter_research_link">Enter Research Link</string>
+    <string name="enter_other_details">Enter Other Details</string>
+    <string name="enter_creative_endeavors">Enter  Creative Endeavors</string>
+    <string name="enter_promoting_collaborations">Enter  Promoting Collaborations</string>
+    <string name="enter_recognition">Enter  Recognition</string>
+    <string name="submit">Submit\n</string>
+</resources>

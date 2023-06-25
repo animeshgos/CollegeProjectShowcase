@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_student_details"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="true"/>
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_heading"
+        android:layout_marginTop="50dp"
+        android:hint="@string/enter_your_name"
+        android:minHeight="56dp"
+        android:textColorHint="#8D6E63"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/edit_usn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_name"
+        android:layout_marginTop="30dp"
+        android:hint="@string/enter_your_usn"
+        android:minHeight="56dp"
+        android:textColorHint="#8D6E63"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/edit_college"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_usn"
+        android:layout_marginTop="30dp"
+        android:hint="@string/enter_your_college_name"
+        android:minHeight="56dp"
+        android:textColorHint="#8D6E63"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/edit_semester"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_college"
+        android:layout_marginTop="30dp"
+        android:hint="@string/enter_your_semester"
+        android:minHeight="56dp"
+        android:textColorHint="#8D6E63" />
+
+    <EditText
+        android:id="@+id/edit_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_semester"
+        android:layout_marginTop="30dp"
+        android:hint="@string/enter_your_department"
+        android:minHeight="56dp"
+        android:textColorHint="#8D6E63"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="129dp"
+        android:layout_height="77dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/next" />
+
+</RelativeLayout>
