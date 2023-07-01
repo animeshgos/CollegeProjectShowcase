@@ -20,12 +20,9 @@ public class StudentInfoActivity  extends AppCompatActivity{
 
         BindUiElement();
 
-        nextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(StudentInfoActivity.this, ProjectInfoActivity.class);
-                startActivity(intent);
-            }
+        nextBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(StudentInfoActivity.this, ProjectInfoActivity.class);
+            startActivity(intent);
         });
     }
 

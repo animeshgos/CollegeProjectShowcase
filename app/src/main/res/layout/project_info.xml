@@ -53,17 +53,6 @@
         android:minHeight="56dp"
         android:required="false" />
 
-    <EditText
-        android:id="@+id/edit_date_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edit_project_link"
-        android:layout_marginTop="50dp"
-        android:hint="@string/enter_date_dd_mm_yyyy"
-        android:inputType="date"
-        android:minHeight="56dp"
-        android:required="true" />
-
     <Button
         android:id="@+id/btn_next"
         android:layout_width="111dp"

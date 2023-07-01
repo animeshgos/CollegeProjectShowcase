@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProjectInfoActivity  extends AppCompatActivity{
-    EditText projectName, projectDesc,projectLink,projectDate;
+    EditText projectName, projectDesc,projectLink;
     Button nextBtn;
 
     @Override
@@ -33,7 +33,6 @@ public class ProjectInfoActivity  extends AppCompatActivity{
         projectName = (EditText) findViewById(R.id.edit_project_name);
         projectDesc = (EditText) findViewById(R.id.edit_project_description);
         projectLink = (EditText) findViewById(R.id.edit_project_link);
-        projectDate = (EditText) findViewById(R.id.edit_date_input);
 
         nextBtn = (Button) findViewById(R.id.btn_next);
     }
