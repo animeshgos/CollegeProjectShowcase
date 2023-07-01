@@ -35,11 +35,14 @@ public class ViewDetailsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private MyAdapter adapter;
+    private DatabaseHelper databaseHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recyclerview_info);
+        databaseHelper = new DatabaseHelper(ViewDetailsActivity.this);
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -81,41 +84,20 @@ public class ViewDetailsActivity extends AppCompatActivity {
         List<Item> itemList = new ArrayList<>();
         // Parse XML and add Item objects to itemList
         // For demonstration purposes, let's add some dummy data
-        try {
-            StringBuilder stringValue = new StringBuilder();
-            InputStream inputStream = getAssets().open("data.xml");
-            XmlPullParser parser = Xml.newPullParser();
-            parser.setInput(inputStream, null);
+        // Retrieve the list of students from the database
+        List<Student> studentList = getStudentsFromDatabase();
 
-            int eventType = parser.getEventType();
-            String currentTagName = "";
-
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_DOCUMENT) {
-                    // Handle the start of the document if needed
-                } else if (eventType == XmlPullParser.START_TAG) {
-                    currentTagName = parser.getName();
-                } else if (eventType == XmlPullParser.TEXT) {
-                    String tagValue = parser.getText();
-                    if (!currentTagName.isEmpty() && !tagValue.isEmpty()) {
-                        String title = currentTagName;
-                        String description = tagValue;
-                        itemList.add(new Item(title, description));
-                    }
-                } else if (eventType == XmlPullParser.END_TAG) {
-                    currentTagName = "";
-                }
-
-                eventType = parser.next();
-            }
-        } catch (Exception ex) {
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        // Iterate over the studentList and create Item objects
+        for (Student student : studentList) {
+            String title = student.getStudentName();
+            String description = student.getCollegeName() + " - " + student.getStudentUSN();
+            itemList.add(new Item(title, description));
         }
 
-//        itemList.add(new Item("Item 1", "Description for Item 1"));
-//        itemList.add(new Item("Item 2", "Description for Item 2"));
-//        itemList.add(new Item("Item 3", "Description for Item 3"));
         return itemList;
+    }
+    private List<Student> getStudentsFromDatabase() {
+        return databaseHelper.getAllStudents();
     }
 
     // Item class representing parsed XML data

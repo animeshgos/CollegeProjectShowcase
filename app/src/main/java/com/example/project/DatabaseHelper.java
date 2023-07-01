@@ -28,6 +28,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_COLLEGE_NAME = "college_name";
     private static final String COLUMN_STUDENT_USN = "student_usn";
 
+private static final String COLUMN_STUDENT_SEM  = "student_sem";
+    private static final String COLUMN_STUDENT_DEPT = "student_dept";
+
     // Project table column names
     private static final String COLUMN_PROJECT_NAME = "project_name";
 
@@ -55,16 +58,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String createStudentTableQuery = "CREATE TABLE " + TABLE_STUDENT + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_STUDENT_NAME + " TEXT, " +
-                COLUMN_COLLEGE_NAME + " TEXT, " +COLUMN_STUDENT_USN + "TEXT" +
+                COLUMN_COLLEGE_NAME + " TEXT, " +
+                COLUMN_STUDENT_SEM + " TEXT, " +
+                COLUMN_STUDENT_USN + " TEXT, " +
+                COLUMN_STUDENT_DEPT + " TEXT " +
                 ")";
         db.execSQL(createStudentTableQuery);
 
         // Create project table
         String createProjectTableQuery = "CREATE TABLE " + TABLE_PROJECT + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_PROJECT_NAME + " TEXT, "
-                + COLUMN_PROJECT_DESC + "TEXT ,"
-                + COLUMN_PROJECT_LINK + "TEXT ," +
+                COLUMN_PROJECT_NAME + " TEXT, " +
+                COLUMN_PROJECT_DESC + " TEXT, " +
+                COLUMN_PROJECT_LINK + " TEXT, " +
                 COLUMN_PROJECT_STUDENT_ID + " INTEGER, " +
                 "FOREIGN KEY (" + COLUMN_PROJECT_STUDENT_ID + ") REFERENCES " + TABLE_STUDENT + "(" + COLUMN_ID + ")" +
                 ")";
@@ -73,10 +79,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Create research table
         String createResearchTableQuery = "CREATE TABLE " + TABLE_RESEARCH + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_RESEARCH_NAME + " TEXT, "
-                + COLUMN_RESEARCH_DESC + "TEXT ,"
-                + COLUMN_RESEARCH_LINK + "TEXT ,"
-                + COLUMN_RESEARCH_PROF_NAME +"TEXT," +
+                COLUMN_RESEARCH_NAME + " TEXT, " +
+                COLUMN_RESEARCH_DESC + " TEXT, " +
+                COLUMN_RESEARCH_LINK + " TEXT, " +
+                COLUMN_RESEARCH_PROF_NAME + " TEXT, " +
                 COLUMN_RESEARCH_STUDENT_ID + " INTEGER, " +
                 "FOREIGN KEY (" + COLUMN_RESEARCH_STUDENT_ID + ") REFERENCES " + TABLE_STUDENT + "(" + COLUMN_ID + ")" +
                 ")";
@@ -91,15 +97,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long addStudent(String studentName, String collegeName,String studentUSN) {
+    public long addStudent(String studentName, String collegeName,String studentUSN,String studentDept,int studentSem) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_STUDENT_NAME, studentName);
         values.put(COLUMN_COLLEGE_NAME, collegeName);
-        values.put(COLUMN_STUDENT_USN,studentUSN);
+        values.put(COLUMN_STUDENT_SEM, studentSem);
+        values.put(COLUMN_STUDENT_USN, studentUSN);
+        values.put(COLUMN_STUDENT_DEPT, studentDept);
 
-        return db.insert(TABLE_STUDENT, null, values);
+
+        return db.insert(TABLE_STUDENT , null , values);
     }
 
     public long addProject(String projectName,String projectDesc, String projectLink,long studentId) {
