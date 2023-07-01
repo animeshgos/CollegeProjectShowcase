@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<Details>
+    <Name1>
+        <uName>John</uName>
+        <USN>12</USN>
+    </Name1>
+    <Name2>
+        <uName>Maria</uName>
+        <USN>23</USN>
+    </Name2>
+
+</Details>
