@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
 public class StudentInfoActivity  extends AppCompatActivity{
     EditText studentName, studentUsn,collegeName,studentSem,studentDept;
     Button nextBtn;
@@ -76,7 +79,9 @@ public class StudentInfoActivity  extends AppCompatActivity{
         editor.apply();
     }
 
-    public long getCurrentStudentId() {
+    public static long getCurrentStudentId(SharedPreferences preferences) {
         return preferences.getLong("currentStudentId", -1);
     }
+
+
 }
