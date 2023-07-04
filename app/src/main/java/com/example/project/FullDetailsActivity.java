@@ -117,6 +117,7 @@ public class FullDetailsActivity extends AppCompatActivity {
             long id = other.getId();
         }
         return content.toString();    }
+    //yes
 
     private List<Student> getStudentsFromDatabase() {
         return databaseHelper.getAllStudents();
