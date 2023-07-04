@@ -87,11 +87,17 @@ public class ViewDetailsActivity extends AppCompatActivity {
 
         // Iterate over the studentList and create Item objects
         for (Student student : studentList) {
+<<<<<<< HEAD
             String name = student.getStudentName();
             String college = student.getCollegeName();
             String usn = student.getStudentUSN();
             long id = student.getId();
             itemList.add(new Item(id,name,college,usn));
+=======
+            String title = student.getStudentName();
+            String description = student.getCollegeName() + " - " + student.getStudentUSN() + " - " + student.getStudentSem() + " - " + student.getStudentDept();
+            itemList.add(new Item(title, description));
+>>>>>>> c811f6e539e6ad06f4b0c361616b29ad9b45863e
         }
 
         return itemList;

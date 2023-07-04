@@ -4,17 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 public class StudentInfoActivity  extends AppCompatActivity{
     EditText studentName, studentUsn,collegeName,studentSem,studentDept;
@@ -79,8 +75,12 @@ public class StudentInfoActivity  extends AppCompatActivity{
         editor.apply();
     }
 
-    public static long getCurrentStudentId(SharedPreferences preferences) {
-        return preferences.getLong("currentStudentId", -1);
+    public static long getCurrentStudentId( SharedPreferences preferences) {
+        Log.d("Shared preference in student", "preference"+preferences);
+        long currentStudentId = preferences.getLong("currentStudentId", -1);
+        Log.d("SharedPreferences", "currentStudentId: " + currentStudentId);
+        return currentStudentId;
+
     }
 
 
