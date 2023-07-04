@@ -53,9 +53,9 @@ public class ProjectInfoActivity  extends AppCompatActivity{
         String link = projectLink.getText().toString();
 
         long rowId;
-        Log.d("Shared preference", "preference"+preferences);
+
         long studentId = StudentInfoActivity.getCurrentStudentId(preferences);
-        Log.d("Shared student id", "id"+studentId);
+
         try {
             rowId = databaseHelper.addProject(name, link, description, studentId);
             if (rowId != -1L) {

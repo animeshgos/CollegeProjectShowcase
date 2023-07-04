@@ -90,7 +90,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
         // Iterate over the studentList and create Item objects
         for (Student student : studentList) {
             String title = student.getStudentName();
-            String description = student.getCollegeName() + " - " + student.getStudentUSN();
+            String description = student.getCollegeName() + " - " + student.getStudentUSN() + " - " + student.getStudentSem() + " - " + student.getStudentDept();
             itemList.add(new Item(title, description));
         }
 
