@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ public class ProjectInfoActivity  extends AppCompatActivity{
         databaseHelper = new DatabaseHelper(ProjectInfoActivity.this);
         BindUiElement();
          preferences = getSharedPreferences("MyPreferences.xml", Context.MODE_PRIVATE);
+
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +53,9 @@ public class ProjectInfoActivity  extends AppCompatActivity{
         String link = projectLink.getText().toString();
 
         long rowId;
+        Log.d("Shared preference", "preference"+preferences);
         long studentId = StudentInfoActivity.getCurrentStudentId(preferences);
+        Log.d("Shared student id", "id"+studentId);
         try {
             rowId = databaseHelper.addProject(name, link, description, studentId);
             if (rowId != -1L) {
