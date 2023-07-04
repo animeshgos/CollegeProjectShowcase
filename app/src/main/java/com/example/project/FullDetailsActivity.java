@@ -1,64 +1,109 @@
 package com.example.project;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import org.w3c.dom.*;
-import javax.xml.parsers.*;
-import java.io.*;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 public class FullDetailsActivity extends AppCompatActivity {
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.viewfull_info);
+    private LinearLayout section1Layout;
+    private LinearLayout section2Layout;
+    private LinearLayout section3Layout;
 
-            Bundle bundle = getIntent().getExtras();
-            String name = bundle.getString("name");
-                        try {
-                            // Load the XML file
-                            InputStream inputStream = getAssets().open("data.xml");
-                            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                            DocumentBuilder builder = factory.newDocumentBuilder();
-                            Document doc = builder.parse(inputStream);
+    private TextView section1ContentTextView;
+    private TextView section2ContentTextView;
+    private TextView section3ContentTextView;
 
-                            // Get the root element
-                            Element root = doc.getDocumentElement();
+    private DatabaseHelper databaseHelper;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_accordion);
 
-                            // Get the <Name15> element
-                            Element name15Element = (Element) root.getElementsByTagName(name).item(0);
+        databaseHelper = new DatabaseHelper(FullDetailsActivity.this);
 
-                            // Get the values of <uName> and <USN> elements within <Name15> element
-                            String uName = getElementValue(name15Element, "uName");
-                            String usn = getElementValue(name15Element, "USN");
+        // Initialize section layouts
+        section1Layout = findViewById(R.id.section1Layout);
+        section2Layout = findViewById(R.id.section2Layout);
+        section3Layout = findViewById(R.id.section3Layout);
 
-                            // Print the extracted values
-                            System.out.println("name");
-                            System.out.println("uName: " + uName);
-                            System.out.println("USN: " + usn);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-        }
-    private static String getElementValue(Element parentElement, String tagName) {
-        NodeList nodeList = parentElement.getElementsByTagName(tagName);
-        if (nodeList != null && nodeList.getLength() > 0) {
-            Element element = (Element) nodeList.item(0);
-            if (element != null) {
-                Node textNode = element.getFirstChild();
-                if (textNode != null) {
-                    return textNode.getNodeValue();
-                }
+        // Initialize section content TextViews
+        section1ContentTextView = findViewById(R.id.section1ContentTextView);
+        section2ContentTextView = findViewById(R.id.section2ContentTextView);
+        section3ContentTextView = findViewById(R.id.section3ContentTextView);
+
+        // Set click listeners for section headers
+        section1Layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleSectionVisibility(section1ContentTextView);
             }
-        }
-        return "";
+        });
+
+        section2Layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleSectionVisibility(section2ContentTextView);
+            }
+        });
+
+        section3Layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleSectionVisibility(section3ContentTextView);
+            }
+        });
+
+        // Set content for each section
+        section1ContentTextView.setText(getSection1Content());
+        section2ContentTextView.setText(getSection2Content());
+        section3ContentTextView.setText(getSection3Content());
     }
 
+    private void toggleSectionVisibility(TextView contentTextView) {
+        if (contentTextView.getVisibility() == View.VISIBLE) {
+            contentTextView.setVisibility(View.GONE);
+        } else {
+            contentTextView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private String getSection1Content() {
+        Bundle bundle = getIntent().getExtras();
+        long stud_id = bundle.getLong("id");
+        List<Project> projectlist = databaseHelper.getProjectsByStudentId(stud_id);
+        StringBuilder content = new StringBuilder();
+        Log.d("studnetid","idid" + projectlist);
+        for (Project project : projectlist) {
+//            String name = project.getProjectName();
+//            String desc = project.getProjectDesc();
+//            String link = project.getProjectLink();
+            Log.d("project","projectdata" + project);
+            content.append("Project: ").append(project.getProjectName()).append("\n");
+            content.append("Description: ").append(project.getProjectDesc()).append("\n");
+            content.append("Link: ").append(project.getProjectLink()).append("\n\n");
+            long id = project.getId();
+//            projectlist.add(new FullDetailsActivity().Item(id,name,desc,link));
+        }
+        Log.d("string","stg"+content.toString());
+        return content.toString();
+    }
+
+    private String getSection2Content() {
+        return "This is the content for section 2.";
+    }
+
+    private String getSection3Content() {
+        return "This is the content for section 3.";
+    }
+
+    private List<Student> getStudentsFromDatabase() {
+        return databaseHelper.getAllStudents();
+    }
 }

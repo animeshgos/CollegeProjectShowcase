@@ -1,6 +1,9 @@
 package com.example.project;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ResearchInfoActivity  extends AppCompatActivity{
-    EditText resName, profName,resLink,resDesc;
+    EditText researchName, professorName,researchLink,researchDesc;
     Button nextBtn;
 
     @Override
@@ -30,12 +33,12 @@ public class ResearchInfoActivity  extends AppCompatActivity{
     }
 
     private void BindUiElement() {
-        resDesc = (EditText) findViewById(R.id.edit_research_description);
-        resName = (EditText) findViewById(R.id.edit_research_name);
-        resLink = (EditText) findViewById(R.id.edit_research_link);
-        profName = (EditText) findViewById(R.id.edit_professor_name);
+        researchName =  findViewById(R.id.edit_research_description);
+        researchDesc =  findViewById(R.id.edit_research_name);
+        researchLink =  findViewById(R.id.edit_research_link);
+        professorName =  findViewById(R.id.edit_professor_name);
 
-        nextBtn = (Button) findViewById(R.id.btn_next);
+        nextBtn =  findViewById(R.id.btn_next);
     }
 
 }

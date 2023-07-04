@@ -123,11 +123,15 @@ private static final String COLUMN_STUDENT_SEM  = "student_sem";
         return db.insert(TABLE_PROJECT, null, values);
     }
 
-    public long addResearch(String researchName, long studentId) {
+    public long addResearch(String researchName,String researchDesc,String researchLink,String professorName, long studentId) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_RESEARCH_NAME, researchName);
+        values.put(COLUMN_RESEARCH_DESC, researchDesc);
+        values.put(COLUMN_RESEARCH_LINK, researchLink);
+        values.put(COLUMN_RESEARCH_PROF_NAME, professorName);
+
         values.put(COLUMN_RESEARCH_STUDENT_ID, studentId);
 
         return db.insert(TABLE_RESEARCH, null, values);

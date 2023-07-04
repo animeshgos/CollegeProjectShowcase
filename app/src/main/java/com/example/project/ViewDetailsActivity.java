@@ -51,11 +51,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
         List<Item> itemList = null;
         try {
             itemList = parseXmlData();
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | IOException | SAXException e) {
             throw new RuntimeException(e);
         }
 
@@ -63,11 +59,13 @@ public class ViewDetailsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Item item) {
                 // Handle click event on a row
-                Toast.makeText(ViewDetailsActivity.this, "Clicked: " + item.getTitle(), Toast.LENGTH_SHORT).show();
-                String name = item.getTitle();
+                Toast.makeText(ViewDetailsActivity.this, "Clicked: " + item.getName(), Toast.LENGTH_SHORT).show();
+//                String name = item.getTitle();
+//                Bundle bundle = new Bundle();
+//                bundle.putString("name",name);
+                long id = item.getId();
                 Bundle bundle = new Bundle();
-                bundle.putString("name",name);
-
+                bundle.putLong("id",id);
                 Intent intent = new Intent(ViewDetailsActivity.this, FullDetailsActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
@@ -85,38 +83,46 @@ public class ViewDetailsActivity extends AppCompatActivity {
         // Parse XML and add Item objects to itemList
         // For demonstration purposes, let's add some dummy data
         // Retrieve the list of students from the database
-        List<Student> studentList = getStudentsFromDatabase();
+        List<Student> studentList = getProjectsFromDatabase();
 
         // Iterate over the studentList and create Item objects
         for (Student student : studentList) {
-            String title = student.getStudentName();
-            String description = student.getCollegeName() + " - " + student.getStudentUSN();
-            itemList.add(new Item(title, description));
+            String name = student.getStudentName();
+            String college = student.getCollegeName();
+            String usn = student.getStudentUSN();
+            long id = student.getId();
+            itemList.add(new Item(id,name,college,usn));
         }
 
         return itemList;
     }
-    private List<Student> getStudentsFromDatabase() {
+    private List<Student> getProjectsFromDatabase() {
         return databaseHelper.getAllStudents();
     }
 
     // Item class representing parsed XML data
     private static class Item {
-        private String title;
-        private String description;
+        private String name;
+        private String college;
+        private String usn;
 
-        public Item(String title, String description) {
-            this.title = title;
-            this.description = description;
+        private long id;
+
+        public Item(long id,String name, String college,String usn) {
+            this.id = id;
+            this.name = name;
+            this.college = college;
+            this.usn = usn;
         }
 
-        public String getTitle() {
-            return title;
+        public String getName() {
+            return name;
         }
 
-        public String getDescription() {
-            return description;
-        }
+        public long getId(){return id;}
+        public String getCollege() { return college; }
+
+        public String getUsn() { return usn; }
     }
 
     // RecyclerView adapter
@@ -161,8 +167,8 @@ public class ViewDetailsActivity extends AppCompatActivity {
 
             public void bindData(Item item) {
                 // Bind XML data to views in the item layout
-                titleTextView.setText(item.getTitle());
-                descriptionTextView.setText(item.getDescription());
+                titleTextView.setText(item.getName());
+                descriptionTextView.setText(String.format("%s\n%s", item.getCollege(), item.getUsn()));
             }
         }
 

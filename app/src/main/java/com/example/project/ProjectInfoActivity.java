@@ -38,11 +38,11 @@ public class ProjectInfoActivity  extends AppCompatActivity{
     }
 
     private void BindUiElement() {
-        projectName = (EditText) findViewById(R.id.edit_project_name);
-        projectDesc = (EditText) findViewById(R.id.edit_project_description);
-        projectLink = (EditText) findViewById(R.id.edit_project_link);
+        projectName =  findViewById(R.id.edit_project_name);
+        projectDesc =  findViewById(R.id.edit_project_description);
+        projectLink =  findViewById(R.id.edit_project_link);
 
-        nextBtn = (Button) findViewById(R.id.btn_next);
+        nextBtn =  findViewById(R.id.btn_next);
     }
 
     private void addProject() {
@@ -56,7 +56,7 @@ public class ProjectInfoActivity  extends AppCompatActivity{
             rowId = databaseHelper.addProject(name, link, description, studentId);
             if (rowId != -1L) {
                 // Insertion successful
-                Toast.makeText(ProjectInfoActivity.this, "Student Added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProjectInfoActivity.this, "Project Added", Toast.LENGTH_SHORT).show();
             } else {
                 // Insertion failed
                 Toast.makeText(ProjectInfoActivity.this, "Insertion failed", Toast.LENGTH_SHORT).show();

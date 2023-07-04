@@ -28,7 +28,7 @@ public class StudentInfoActivity  extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_info);
         databaseHelper = new DatabaseHelper(StudentInfoActivity.this);
-        preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("MyPreferences.xml", Context.MODE_PRIVATE);
 
         BindUiElement();
 
@@ -40,13 +40,13 @@ public class StudentInfoActivity  extends AppCompatActivity{
     }
 
     private void BindUiElement() {
-        studentName = (EditText) findViewById(R.id.edit_name);
-        studentDept = (EditText) findViewById(R.id.edit_department);
-        studentSem = (EditText) findViewById(R.id.edit_semester);
-        studentUsn = (EditText) findViewById(R.id.edit_usn);
-        collegeName = (EditText) findViewById(R.id.edit_college);
+        studentName =  findViewById(R.id.edit_name);
+        studentDept =  findViewById(R.id.edit_department);
+        studentSem =  findViewById(R.id.edit_semester);
+        studentUsn =  findViewById(R.id.edit_usn);
+        collegeName =  findViewById(R.id.edit_college);
 
-        nextBtn = (Button) findViewById(R.id.btn_next);
+        nextBtn =  findViewById(R.id.btn_next);
     }
 
     private void addStudent() {
