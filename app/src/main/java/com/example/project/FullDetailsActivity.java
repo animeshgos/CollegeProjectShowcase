@@ -81,27 +81,42 @@ public class FullDetailsActivity extends AppCompatActivity {
         StringBuilder content = new StringBuilder();
         Log.d("studnetid","idid" + projectlist);
         for (Project project : projectlist) {
-//            String name = project.getProjectName();
-//            String desc = project.getProjectDesc();
-//            String link = project.getProjectLink();
             Log.d("project","projectdata" + project);
             content.append("Project: ").append(project.getProjectName()).append("\n");
             content.append("Description: ").append(project.getProjectDesc()).append("\n");
             content.append("Link: ").append(project.getProjectLink()).append("\n\n");
             long id = project.getId();
-//            projectlist.add(new FullDetailsActivity().Item(id,name,desc,link));
         }
         Log.d("string","stg"+content.toString());
         return content.toString();
     }
 
     private String getSection2Content() {
-        return "This is the content for section 2.";
-    }
+        Bundle bundle = getIntent().getExtras();
+        long stud_id = bundle.getLong("id");
+        List<Research> researchlist = databaseHelper.getResearchByStudentId(stud_id);
+        StringBuilder content = new StringBuilder();
+        for (Research research : researchlist) {
+            content.append("Research: ").append(research.getResearchName()).append("\n");
+            content.append("Description: ").append(research.getResearchDesc()).append("\n");
+            content.append("Link: ").append(research.getResearchLink()).append("\n\n");
+            content.append("Professor's Name: ").append(research.getResearchProfName()).append("\n\n");
+            long id = research.getId();
+        }
+        return content.toString();    }
 
     private String getSection3Content() {
-        return "This is the content for section 3.";
-    }
+        Bundle bundle = getIntent().getExtras();
+        long stud_id = bundle.getLong("id");
+        List<Others> otherlist = databaseHelper.getOtherDataByStudentId(stud_id);
+        StringBuilder content = new StringBuilder();
+        for (Others other : otherlist) {
+            content.append("Endeavours: ").append(other.getOtherEndeavor()).append("\n");
+            content.append("Collaborations: ").append(other.getOtherCollab()).append("\n");
+            content.append("Recognition: ").append(other.getOtherRecognition()).append("\n\n");
+            long id = other.getId();
+        }
+        return content.toString();    }
 
     private List<Student> getStudentsFromDatabase() {
         return databaseHelper.getAllStudents();

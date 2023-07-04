@@ -19,9 +19,7 @@ public class OtherDetailsActivity  extends AppCompatActivity{
 
     private SharedPreferences preferences;
 
-    private DatabaseHelper databaseHelper;
 
-    private SharedPreferences preferences;
 
 
     @Override
@@ -30,12 +28,8 @@ public class OtherDetailsActivity  extends AppCompatActivity{
         setContentView(R.layout.other_info);
 
         databaseHelper = new DatabaseHelper(OtherDetailsActivity.this);
-<<<<<<< HEAD
 
-=======
->>>>>>> c811f6e539e6ad06f4b0c361616b29ad9b45863e
         BindUiElement();
-        preferences = getSharedPreferences("MyPreferences.xml", Context.MODE_PRIVATE);
 
 
         preferences = getSharedPreferences("MyPreferences.xml", Context.MODE_PRIVATE);
@@ -43,38 +37,15 @@ public class OtherDetailsActivity  extends AppCompatActivity{
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-<<<<<<< HEAD
-//                addOtherDetails();
-=======
+
                 addOthers();
->>>>>>> c811f6e539e6ad06f4b0c361616b29ad9b45863e
                 Intent intent = new Intent(OtherDetailsActivity.this, ViewDetailsActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-//    private void addOtherDetails() {
-//        String  name = creatEnd.getText().toString();
-//        String description = recgn.getText().toString();
-//        String  link = promColab.getText().toString();
-//
-//        long rowId;
-//        long studentId = StudentInfoActivity.getCurrentStudentId(preferences);
-//        try {
-//            rowId = databaseHelper.addOtherDetails(name, description,link ,studentId);
-//            if (rowId != -1L) {
-//                // Insertion successful
-//                Toast.makeText(OtherDetailsActivity.this, "Other Details Added", Toast.LENGTH_SHORT).show();
-//            } else {
-//                // Insertion failed
-//                Toast.makeText(OtherDetailsActivity.this, "Insertion failed", Toast.LENGTH_SHORT).show();
-//            }
-//        } catch (SQLException e) {
-//            String errorMessage = e.getMessage();
-//            Toast.makeText(OtherDetailsActivity.this, "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
-//        }
-//    }
+
 
     private void BindUiElement() {
         creatEnd =  findViewById(R.id.edit_creative_endeavors);

@@ -49,10 +49,10 @@ public class ResearchInfoActivity  extends AppCompatActivity{
         nextBtn =  findViewById(R.id.btn_next);
     }
     private void addResearch(){
-        String desc = resDesc.getText().toString();
-        String name = resName.getText().toString();
-        String link = resLink.getText().toString();
-        String prof = profName.getText().toString();
+        String desc = researchDesc.getText().toString();
+        String name = researchName.getText().toString();
+        String link = researchLink.getText().toString();
+        String prof = professorName.getText().toString();
         long rowId;
 
         long studentId = StudentInfoActivity.getCurrentStudentId(preferences);

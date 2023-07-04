@@ -17,4 +17,8 @@ public class Others {
     public String getOtherCollab(){return otherCollab;}
     public String getOtherRecognition(){return otherRecognition;}
 
+    public  long getId(){
+        return id;
+    }
+
 }
