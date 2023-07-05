@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -41,8 +43,17 @@ public class StudentInfoActivity  extends AppCompatActivity{
         studentSem =  findViewById(R.id.edit_semester);
         studentUsn =  findViewById(R.id.edit_usn);
         collegeName =  findViewById(R.id.edit_college);
-
+//        GradientDrawable gradientDrawable = new GradientDrawable();
+//        gradientDrawable.setColor(Color.parseColor("#FFC107")); // Set the background color
+//        gradientDrawable.setCornerRadius(8);
         nextBtn =  findViewById(R.id.btn_next);
+//        studentName.setBackground(gradientDrawable);
+//        studentUsn.setBackground(gradientDrawable);
+//        studentSem.setBackground(gradientDrawable);
+//        studentName.setBackground(gradientDrawable);
+        //collegeName
+//        studentDept.setBackground(gradientDrawable);
+
     }
 
     private void addStudent() {

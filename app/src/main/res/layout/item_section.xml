@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:clickable="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background_image">
 
     <TextView
         android:id="@+id/titleTextView"

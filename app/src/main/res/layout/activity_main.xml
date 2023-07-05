@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_image">
 
     <TextView
         android:id="@+id/text_screen_name"
@@ -13,7 +14,9 @@
         android:text="@string/college_project_showcase"
         android:textAllCaps="true"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"/>
 
     <Button
         android:id="@+id/btn_add_details"
@@ -23,7 +26,8 @@
         android:layout_below="@id/text_screen_name"
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
-        android:layout_marginTop="150dp" />
+        android:layout_marginTop="150dp"
+        android:backgroundTint="@color/black"/>
 
     <Button
         android:id="@+id/btn_view_details"
@@ -33,6 +37,7 @@
         android:layout_below="@id/btn_add_details"
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
-        android:layout_marginTop="100dp" />
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/black"/>
 
 </RelativeLayout>

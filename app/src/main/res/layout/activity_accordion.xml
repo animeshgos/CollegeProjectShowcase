@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/background_image">
 
     <LinearLayout
         android:id="@+id/section1Layout"
@@ -11,13 +12,29 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="15dp"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Project"
-            android:textAppearance="?android:textAppearanceMedium" />
+            android:text="PROJECT"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold|italic"
+            android:textSize="45dp"
+            android:layout_marginLeft="25dp"
+
+            />
+        <TextView
+            android:id="@+id/section1ArrowTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▼"
+            android:textSize="30dp"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginRight="8dp"
+        />
 
     </LinearLayout>
 
@@ -25,8 +42,10 @@
         android:id="@+id/section1ContentTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textColor="@android:color/darker_gray"
+        android:padding="10dp"
+        android:textSize="25dp"
+        android:text="bold"
+        android:textColor="@android:color/black"
         android:visibility="gone" />
 
     <LinearLayout
@@ -35,13 +54,29 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="15dp"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Research"
-            android:textAppearance="?android:textAppearanceMedium" />
+            android:text="RESEARCH"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold|italic"
+            android:layout_margin="20dp"
+            android:textSize="45dp"/>
+        <TextView
+            android:id="@+id/section2ArrowTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▼"
+            android:textSize="30dp"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="18dp"
+
+            />
 
     </LinearLayout>
 
@@ -49,8 +84,10 @@
         android:id="@+id/section2ContentTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textColor="@android:color/darker_gray"
+        android:padding="15dp"
+        android:textSize="25dp"
+        android:text="bold"
+        android:textColor="@android:color/black"
         android:visibility="gone" />
 
     <LinearLayout
@@ -59,13 +96,28 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="15dp"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Other Details"
-            android:textAppearance="?android:textAppearanceMedium" />
+            android:text="OTHER DETAILS"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold|italic"
+            android:textSize="35dp"
+            android:layout_margin="20dp"/>
+        <TextView
+            android:id="@+id/section3ArrowTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▼"
+            android:textSize="30dp"
+            android:paddingLeft="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="18dp"
+            />
 
     </LinearLayout>
 
@@ -74,7 +126,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:textColor="@android:color/darker_gray"
+        android:textSize="25dp"
+        android:text="bold"
+        android:textColor="@android:color/black"
         android:visibility="gone" />
 
 </LinearLayout>

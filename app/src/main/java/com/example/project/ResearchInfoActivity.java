@@ -61,7 +61,7 @@ public class ResearchInfoActivity  extends AppCompatActivity{
             rowId = databaseHelper.addResearch(name, link, desc, prof, studentId);
             if (rowId != -1L) {
                 // Insertion successful
-                Toast.makeText(ResearchInfoActivity.this, "Student Added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ResearchInfoActivity.this, "Research Added", Toast.LENGTH_SHORT).show();
             } else {
                 // Insertion failed
                 Toast.makeText(ResearchInfoActivity.this, "Insertion failed", Toast.LENGTH_SHORT).show();
