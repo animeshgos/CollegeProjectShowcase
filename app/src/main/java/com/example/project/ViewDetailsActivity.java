@@ -1,7 +1,9 @@
 package com.example.project;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,9 +62,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
             public void onItemClick(Item item) {
                 // Handle click event on a row
                 Toast.makeText(ViewDetailsActivity.this, "Clicked: " + item.getName(), Toast.LENGTH_SHORT).show();
-//                String name = item.getTitle();
-//                Bundle bundle = new Bundle();
-//                bundle.putString("name",name);
+
                 long id = item.getId();
                 Bundle bundle = new Bundle();
                 bundle.putLong("id",id);
@@ -83,20 +83,23 @@ public class ViewDetailsActivity extends AppCompatActivity {
         // Parse XML and add Item objects to itemList
         // For demonstration purposes, let's add some dummy data
         // Retrieve the list of students from the database
-        List<Student> studentList = getProjectsFromDatabase();
+        List<Student> studentList = getStudentsFromDatabase();
 
         // Iterate over the studentList and create Item objects
         for (Student student : studentList) {
             String name = student.getStudentName();
             String college = student.getCollegeName();
             String usn = student.getStudentUSN();
+            String sem = student.getStudentSem();
+            String dept = student.getStudentDept();
             long id = student.getId();
-            itemList.add(new Item(id,name,college,usn));
+            itemList.add(new Item(id,name,college,usn,sem,dept));
+
         }
 
         return itemList;
     }
-    private List<Student> getProjectsFromDatabase() {
+    private List<Student> getStudentsFromDatabase() {
         return databaseHelper.getAllStudents();
     }
 
@@ -104,22 +107,26 @@ public class ViewDetailsActivity extends AppCompatActivity {
     private static class Item {
         private String name;
         private String college;
-        private String usn;
+        private String usn,sem,dept;
 
         private long id;
 
-        public Item(long id,String name, String college,String usn) {
+        public Item(long id,String name, String college,String usn,String sem,String dept) {
             this.id = id;
             this.name = name;
             this.college = college;
             this.usn = usn;
+            this.sem = sem;
+            this.dept = dept;
         }
 
         public String getName() {
             return name;
         }
+        public String getStudentSem(){ return sem;}
 
-        public long getId(){return id;}
+        public String getStudentDept(){ return dept;}
+        public long getId(){ return id; }
         public String getCollege() { return college; }
 
         public String getUsn() { return usn; }
@@ -161,15 +168,19 @@ public class ViewDetailsActivity extends AppCompatActivity {
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
+
                 titleTextView = itemView.findViewById(R.id.titleTextView);
                 descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
             }
 
             public void bindData(Item item) {
                 // Bind XML data to views in the item layout
-                titleTextView.setText(item.getName());
-                descriptionTextView.setText(String.format("%s\n%s", item.getCollege(), item.getUsn()));
+                titleTextView.setText("Name: "+item.getName());
+                descriptionTextView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                descriptionTextView.setLineSpacing(0, 1.2f);
+                descriptionTextView.setText(String.format("USN: %s\nCollege: %s\n Semester: %s  Department: %s", item.getUsn(), item.getCollege(),item.getStudentSem(),item.getStudentDept()));
             }
+
         }
 
         public interface OnItemClickListener {

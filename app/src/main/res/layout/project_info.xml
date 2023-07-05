@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_image">
 
     <!-- Heading: Enter Project Details -->
     <TextView
@@ -14,7 +15,9 @@
         android:textStyle="bold"
         android:textAllCaps="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"/>
 
     <!-- Project Name -->
     <EditText
@@ -26,7 +29,9 @@
         android:hint="@string/enter_your_project_name"
         android:inputType="text"
         android:minHeight="56dp"
-        android:required="true" />
+        android:required="true"
+        android:imeOptions="actionNext"
+        android:nextFocusForward="@+id/edit_project_description"/>
 
     <!-- Project Description -->
     <EditText
@@ -40,7 +45,8 @@
         android:required="true"
         android:minLines="7"
         android:maxLines="20"
-        android:maxLength="500" />
+        android:maxLength="500"
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:id="@+id/edit_project_link"
@@ -51,7 +57,9 @@
         android:hint="@string/enter_your_project_link"
         android:inputType="textUri"
         android:minHeight="56dp"
-        android:required="false" />
+        android:required="false"
+        android:imeOptions="actionNext"
+        />
 
     <Button
         android:id="@+id/btn_next"
@@ -62,6 +70,7 @@
         android:layout_marginEnd="16dp"
         android:hint="@string/next"
         android:layout_marginBottom="16dp"
-        android:text="@+id/btn_next" />
+        android:text="@string/next"
+        android:backgroundTint="@color/black"/>
 
 </RelativeLayout>

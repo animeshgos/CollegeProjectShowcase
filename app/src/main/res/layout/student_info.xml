@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_image">
 
     <TextView
         android:id="@+id/text_heading"
@@ -13,7 +14,10 @@
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        />
 
     <EditText
         android:id="@+id/edit_name"
@@ -24,7 +28,10 @@
         android:hint="@string/enter_your_name"
         android:minHeight="56dp"
         android:textColorHint="#8D6E63"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:imeOptions="actionNext"
+
+        />
 
     <EditText
         android:id="@+id/edit_usn"
@@ -35,7 +42,8 @@
         android:hint="@string/enter_your_usn"
         android:minHeight="56dp"
         android:textColorHint="#8D6E63"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:id="@+id/edit_college"
@@ -56,7 +64,8 @@
         android:layout_marginTop="30dp"
         android:hint="@string/enter_your_semester"
         android:minHeight="56dp"
-        android:textColorHint="#8D6E63" />
+        android:textColorHint="#8D6E63"
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:id="@+id/edit_department"
@@ -67,7 +76,8 @@
         android:hint="@string/enter_your_department"
         android:minHeight="56dp"
         android:textColorHint="#8D6E63"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:imeOptions="actionNext"/>
 
     <Button
         android:id="@+id/btn_next"
@@ -77,6 +87,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
-        android:text="@string/next" />
+        android:text="@string/next"
+        android:backgroundTint="@color/black"/>
 
 </RelativeLayout>

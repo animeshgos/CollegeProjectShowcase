@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_image">
 
     <TextView
         android:id="@+id/text_heading"
@@ -13,7 +14,10 @@
         android:textStyle="bold"
         android:textAllCaps="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        />
 
     <EditText
         android:id="@+id/edit_research_name"
@@ -26,7 +30,8 @@
         android:minHeight="48dp"
         android:required="true"
         android:textColorHint="#8D6E63"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:id="@+id/edit_professor_name"
@@ -39,7 +44,8 @@
         android:minHeight="48dp"
         android:required="true"
         android:textColorHint="#8D6E63"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:id="@+id/edit_research_description"
@@ -54,7 +60,8 @@
         android:minLines="4"
         android:required="true"
         android:textColorHint="#8D6E63"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:id="@+id/edit_research_link"
@@ -67,7 +74,8 @@
         android:minHeight="48dp"
         android:required="false"
         android:textColorHint="#8D6E63"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:imeOptions="actionNext"/>
 
     <Button
         android:id="@+id/btn_next"
@@ -77,6 +85,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/next" />
+        android:text="@string/next"
+        android:backgroundTint="@color/black" />
 
 </RelativeLayout>

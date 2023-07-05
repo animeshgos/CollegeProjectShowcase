@@ -67,7 +67,7 @@ public class OtherDetailsActivity  extends AppCompatActivity{
             rowId = databaseHelper.addOthers(endaevor,collab,recogn, studentId);
             if (rowId != -1L) {
                 // Insertion successful
-                Toast.makeText(OtherDetailsActivity.this, "Student Added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OtherDetailsActivity.this, "Other details Added", Toast.LENGTH_SHORT).show();
             } else {
                 // Insertion failed
                 Toast.makeText(OtherDetailsActivity.this, "Insertion failed", Toast.LENGTH_SHORT).show();

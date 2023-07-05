@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_image">
 
     <TextView
         android:id="@+id/text_heading"
@@ -13,7 +14,11 @@
         android:textStyle="bold"
         android:textAllCaps="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        />
 
     <EditText
         android:id="@+id/edit_creative_endeavors"
@@ -23,7 +28,9 @@
         android:layout_marginTop="50dp"
         android:autofillHints=""
         android:hint="@string/enter_creative_endeavors"
-        android:textColorHint="#8D6E63" />
+        android:textColorHint="#8D6E63"
+        android:imeOptions="actionNext"
+        />
 
     <EditText
         android:id="@+id/edit_promoting_collaborations"
@@ -33,7 +40,9 @@
         android:layout_marginTop="50dp"
         android:autofillHints=""
         android:hint="@string/enter_promoting_collaborations"
-        android:textColorHint="#8D6E63" />
+        android:textColorHint="#8D6E63"
+        android:imeOptions="actionNext"
+        />
 
     <EditText
         android:id="@+id/edit_recognition"
@@ -43,7 +52,9 @@
         android:layout_marginTop="50dp"
         android:autofillHints=""
         android:hint="@string/enter_recognition"
-        android:textColorHint="#8D6E63" />
+        android:textColorHint="#8D6E63"
+        android:imeOptions="actionNext"
+        />
 
     <Button
         android:id="@+id/btn_next"
@@ -53,6 +64,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/submit" />
+        android:text="@string/submit"
+        android:textSize="23dp"
+        android:backgroundTint="@color/black"/>
 
 </RelativeLayout>

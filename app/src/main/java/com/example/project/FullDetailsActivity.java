@@ -1,7 +1,6 @@
 package com.example.project;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,6 +33,8 @@ public class FullDetailsActivity extends AppCompatActivity {
         section3Layout = findViewById(R.id.section3Layout);
 
         // Initialize section content TextViews
+//        section1ContentTextView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+//        section1ContentTextView.setLineSpacing(0, 1.2f);
         section1ContentTextView = findViewById(R.id.section1ContentTextView);
         section2ContentTextView = findViewById(R.id.section2ContentTextView);
         section3ContentTextView = findViewById(R.id.section3ContentTextView);
@@ -79,15 +80,12 @@ public class FullDetailsActivity extends AppCompatActivity {
         long stud_id = bundle.getLong("id");
         List<Project> projectlist = databaseHelper.getProjectsByStudentId(stud_id);
         StringBuilder content = new StringBuilder();
-        Log.d("studnetid","idid" + projectlist);
         for (Project project : projectlist) {
-            Log.d("project","projectdata" + project);
-            content.append("Project: ").append(project.getProjectName()).append("\n");
-            content.append("Description: ").append(project.getProjectDesc()).append("\n");
-            content.append("Link: ").append(project.getProjectLink()).append("\n\n");
+            content.append("Project:   ").append(project.getProjectName()).append("\n\n");
+            content.append("Description:   ").append(project.getProjectDesc()).append("\n\n");
+            content.append("Link:   ").append(project.getProjectLink()).append("");
             long id = project.getId();
         }
-        Log.d("string","stg"+content.toString());
         return content.toString();
     }
 
@@ -97,9 +95,9 @@ public class FullDetailsActivity extends AppCompatActivity {
         List<Research> researchlist = databaseHelper.getResearchByStudentId(stud_id);
         StringBuilder content = new StringBuilder();
         for (Research research : researchlist) {
-            content.append("Research: ").append(research.getResearchName()).append("\n");
-            content.append("Description: ").append(research.getResearchDesc()).append("\n");
-            content.append("Link: ").append(research.getResearchLink()).append("\n\n");
+            content.append("Research:  ").append(research.getResearchName()).append("\n\n");
+            content.append("Description:  ").append(research.getResearchDesc()).append("\n\n");
+            content.append("Link:  ").append(research.getResearchLink()).append("\n\n");
             content.append("Professor's Name: ").append(research.getResearchProfName()).append("\n\n");
             long id = research.getId();
         }
@@ -111,12 +109,13 @@ public class FullDetailsActivity extends AppCompatActivity {
         List<Others> otherlist = databaseHelper.getOtherDataByStudentId(stud_id);
         StringBuilder content = new StringBuilder();
         for (Others other : otherlist) {
-            content.append("Endeavours: ").append(other.getOtherEndeavor()).append("\n");
-            content.append("Collaborations: ").append(other.getOtherCollab()).append("\n");
-            content.append("Recognition: ").append(other.getOtherRecognition()).append("\n\n");
+            content.append("Endeavours:  ").append(other.getOtherEndeavor()).append("\n\n");
+            content.append("Collaborations:  ").append(other.getOtherCollab()).append("\n\n");
+            content.append("Recognition:  ").append(other.getOtherRecognition()).append("");
             long id = other.getId();
         }
         return content.toString();    }
+    //yes
 
     private List<Student> getStudentsFromDatabase() {
         return databaseHelper.getAllStudents();
